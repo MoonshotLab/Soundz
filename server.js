@@ -17,6 +17,17 @@ app.set('view engine', 'jade');
 app.get('/', function(req ,res){
 	res.render('index');
 	soundLoop.start(125,500);
+
+
+	// FAKE
+	if( req.query.random == 'true') {
+		setInterval(function(){
+			var i = Math.round(Math.random()*15);
+			arduino.events().emit('pinChange',i);
+		},500)
+	}
+
+
 });
 var server = http.Server(app);
 server.listen(port, function(){
@@ -47,15 +58,7 @@ soundLoop.events().on('playNote',function(info){
 arduino.events().on('pinChange',function(pinIdx){
 	console.log("pin:"+pinIdx);
 	soundLoop.changeNote(pinIdx);
-	syncScreen();
+	var val = soundLoop.getNotes()[pinIdx];
+	io.emit('update',{index:pinIdx,position:val});
 });
 
-
-// FAKE
-var i = 0;
-setInterval(function(){
-	arduino.events().emit('pinChange',i);
-	
-	i=(i+1) % 15;
-
-},100)

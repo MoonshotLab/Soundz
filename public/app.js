@@ -7,6 +7,10 @@ socket.on('update', function(opts){
   $ball.css({
     bottom : opts.position/12 * 100 + '%'
   });
+  $ball.addClass('move');
+  setTimeout(function(){
+    $ball.removeClass('move');
+  }, 200);
 });
 
 
@@ -16,5 +20,5 @@ socket.on('beat', function(opts){
   $ball.addClass('beat');
   setTimeout(function(){
     $ball.removeClass('beat');
-  }, 500);
+  }, 200);
 });
