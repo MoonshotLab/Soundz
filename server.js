@@ -20,11 +20,18 @@ app.get('/', function(req ,res){
 	soundLoop.start(1000,500);
 	
 	// FAKE
-	if( req.query.random == 'true') {
+	if( req.query.mock == 'random') {
 		setInterval(function(){
 			var i = Math.round(Math.random()*14);
 			arduino.events().emit('pinChange',i);
 		},500)
+	}
+	else if( req.query.mock == 'line') {
+		setInterval(function(){
+			for( var i=0;i<15; i++) {
+				arduino.events().emit('pinChange',i);
+			}
+		},2000)
 	}
 
 
