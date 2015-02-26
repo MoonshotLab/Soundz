@@ -16,9 +16,9 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 app.get('/', function(req ,res){
 	res.render('index');
-	
+
 	soundLoop.start(1000,500);
-	
+
 	// FAKE
 	if( req.query.mock == 'random') {
 		setInterval(function(){
@@ -46,13 +46,13 @@ server.listen(port, function(){
 //
 var syncScreen=function(){
   	soundLoop.getNotes().forEach(function(val,i){
-  		console.log("update display:"+i+" "+val);
+  		// console.log("update display:"+i+" "+val);
 		io.emit('update',{index:i,position:val});
 	});
 }
 var io = require('socket.io')(server);
 io.on('connection', function(socket){
-	console.log('connected');
+	// console.log('connected');
 	syncScreen();
 });
 soundLoop.events().on('playNote',function(info){
@@ -63,9 +63,8 @@ soundLoop.events().on('playNote',function(info){
 // Arduino -> In
 //
 arduino.events().on('pinChange',function(pinIdx){
-	console.log("pin:"+pinIdx);
+	// console.log("pin:"+pinIdx);
 	soundLoop.changeNote(pinIdx);
 	var val = soundLoop.getNotes()[pinIdx];
 	io.emit('update',{index:pinIdx,position:val});
 });
-

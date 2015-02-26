@@ -19,7 +19,7 @@ html, body{
       50%{background-position:100% 50%}
       100%{background-position:0% 50%}
   }
-  @keyframes gradientFade { 
+  @keyframes gradientFade {
       0%{background-position:0% 50%}
       50%{background-position:100% 50%}
       100%{background-position:0% 50%}
@@ -38,26 +38,25 @@ html, body{
 
 .string{
   position: absolute;
-  width: 1px;
+  width: 10px;
   height: 100%;
-  background-color: white;
-  left: 49%;
+  background-color: #1887CC;
+  left: 38px;
 }
 
 .ball{
   position: absolute;
   width: 50%;
   padding-bottom: 50%;
-  background-color: #3333FF;
+  background-color: #1887CC;
   border-radius: 50%;
   bottom: 0%;
   left: 25%;
-  box-shadow: 0px 0px 10px #0f7156;
-  transition: box-shadow .2s;
+  transition: box-shadow .4s, bottom .5s;
 }
 
 .ball.beat{
-  background:#AA0000;
+  background:red;
   -webkit-transform: scale(1.2);
   trasform: scale(1.2);
   box-shadow: red 0 0 30px 30px

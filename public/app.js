@@ -5,7 +5,7 @@ var socket = io();
 socket.on('update', function(opts){
   var $ball = $('.stripe-' + opts.index).find('.ball');
   $ball.css({
-    bottom : opts.position/12 * 100 + '%'
+    bottom : opts.position/7 * 100 + '%'
   });
   $ball.addClass('move');
   setTimeout(function(){
@@ -20,5 +20,5 @@ socket.on('beat', function(opts){
   $ball.addClass('beat');
   setTimeout(function(){
     $ball.removeClass('beat');
-  }, 200);
+  }, 500);
 });
