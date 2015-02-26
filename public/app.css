@@ -1,0 +1,34 @@
+html, body{
+  background-color: black;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+}
+
+#stripes{
+  width: 100%;
+  height: 100%;
+}
+
+.stripe{
+  position: absolute;
+  height: 100%;
+}
+
+.string{
+  position: absolute;
+  width: 1%;
+  height: 100%;
+  background-color: white;
+  left: 49%;
+}
+
+.ball{
+  position: absolute;
+  width: 50%;
+  padding-bottom: 50%;
+  background-color: white;
+  border-radius: 50%;
+  top: 90%;
+  left: 25%;
+}
