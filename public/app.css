@@ -52,11 +52,11 @@ html, body{
   border-radius: 50%;
   bottom: 0%;
   left: 25%;
-  transition: box-shadow .2s;
+  transition: box-shadow .4s, bottom .5s;
 }
 
 .ball.beat{
-  background:#AA0000;
+  background:red;
   -webkit-transform: scale(1.2);
   trasform: scale(1.2);
   box-shadow: red 0 0 30px 30px

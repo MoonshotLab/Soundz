@@ -20,5 +20,5 @@ socket.on('beat', function(opts){
   $ball.addClass('beat');
   setTimeout(function(){
     $ball.removeClass('beat');
-  }, 200);
+  }, 500);
 });
