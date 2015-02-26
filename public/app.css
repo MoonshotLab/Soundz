@@ -29,6 +29,6 @@ html, body{
   padding-bottom: 50%;
   background-color: white;
   border-radius: 50%;
-  top: 0%;
+  bottom: 0%;
   left: 25%;
 }

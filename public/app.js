@@ -3,9 +3,9 @@ var socket = io();
 // there's always exactly twelve notes
 // { position : 0 to 12, index : 0 to however many ballz }
 socket.on('update', function(opts){
-  var $ball = $('.stripe-' + opts.index);
+  var $ball = $('.stripe-' + opts.index).find('.ball');
   $ball.css({
-    top : opts.position/12 * 100 + '%'
+    bottom : opts.position/12 * 100 + '%'
   });
 });
 
