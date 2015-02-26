@@ -16,13 +16,13 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 app.get('/', function(req ,res){
 	res.render('index');
-	soundLoop.start(125,500);
-
-
+	
+	soundLoop.start(1000,500);
+	
 	// FAKE
 	if( req.query.random == 'true') {
 		setInterval(function(){
-			var i = Math.round(Math.random()*15);
+			var i = Math.round(Math.random()*14);
 			arduino.events().emit('pinChange',i);
 		},500)
 	}
