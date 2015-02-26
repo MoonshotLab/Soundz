@@ -54,7 +54,8 @@ arduino.events().on('pinChange',function(pinIdx){
 // FAKE
 var i = 0;
 setInterval(function(){
+	arduino.events().emit('pinChange',i);
+	
 	i=(i+1) % 15;
-	arduino.events().emit('pinChange',i)
 
 },100)
