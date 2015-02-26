@@ -13,10 +13,10 @@ html
     body
       #stripes
         - var index = 0
-        - var count = 12
+        - var count = 15
 
         while index < count
-          .stripe(style="left:#{(index/count)*100}%; width:#{100/count}%;")
+          .stripe(class="stripe-#{index}" style="left:#{(index/count)*100}%; width:#{100/count}%;")
             .string
             .ball
           - index++
