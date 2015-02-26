@@ -16,7 +16,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 app.get('/', function(req ,res){
 	res.render('index');
-	soundLoop.start(200,300);
+	soundLoop.start(125,500);
 });
 var server = http.Server(app);
 server.listen(port, function(){
