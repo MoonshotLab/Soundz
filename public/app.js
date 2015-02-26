@@ -12,7 +12,7 @@ socket.on('update', function(opts){
 
 // { index : 0 to however many ballz }
 socket.on('beat', function(opts){
-  var $ball = $('.stripe-' + opts.index);
+  var $ball = $('.stripe-' + opts.index).find('.ball');
   $ball.addClass('beat');
   setTimeout(function(){
     $ball.removeClass('beat');
