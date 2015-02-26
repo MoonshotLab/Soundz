@@ -9,28 +9,6 @@ var soundLoop = require('./lib/soundLoop');
 
 
 
-var pins = [
-	11,
-	0,
-	10,
-	8,
-	0,
-	0,
-	3,
-	11,
-	0,
-	10,
-	8,
-	0,
-	0,
-	0,
-	0,
-	0,
-	0,
-];
-
-
-
 //	Web
 //
 app.use(express.static(path.join(__dirname, 'public')));
@@ -51,11 +29,14 @@ server.listen(port, function(){
 var io = require('socket.io')(server);
 io.on('connection', function(socket){
 	console.log('connected');
-  	pins.forEach(function(val,i){
+  	soundLoop.getNotes().forEach(function(val,i){
   		console.log("update display:"+i+" "+val);
 		io.emit('update',{index:i,position:val});
 	});
 });
+soundLoop.events().on('playNote',function(info){
+	io.emit('beat',info);
+})
 
 
 // Arduino -> In
@@ -65,7 +46,7 @@ var reset = function(){
 	pins = Array.apply(null, new Array(15)).map(Number.prototype.valueOf,0);
 }
 arduino.events().on('pinChange',function(pinIdx){
-	console.log("pin:"+pinIdx);
-	var pin = pins[pinIdx] = pins[pinIdx]+1;
-	//soundLoop.updateNote(pinIdx, pin);
+	// console.log("pin:"+pinIdx);
+	// var pin = pins[pinIdx] = pins[pinIdx]+1;
+	// soundLoop.updateNote(pinIdx, pin);
 });
